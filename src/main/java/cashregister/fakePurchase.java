@@ -1,20 +1,21 @@
 package cashregister;
 
-public class fakePurchase {
-    private Item[] items;
+public class fakePurchase extends Purchase{
+    private String StringIWanted;
 
     public fakePurchase(Item[] items) {
-
-        this.items = items;
+        super(items);
     }
 
+
+    public String getStringIWanted() {
+        return StringIWanted;
+    }
+
+    public void setStringIWanted(String stringIWanted) {
+        StringIWanted = stringIWanted;
+    }
     public String asString() {
-        String out = "";
-
-        for (Item item : items) {
-            out += item.getName() + "\t" + item.getPrice() + "\n";
-        }
-
-        return out;
+       return this.getStringIWanted();
     }
 }
