@@ -1,9 +1,9 @@
 package cashregister;
 
-public class fakePurchase extends Purchase{
+public class FakePurchase extends Purchase{
     private String StringIWanted;
 
-    public fakePurchase(Item[] items) {
+    public FakePurchase(Item[] items) {
         super(items);
     }
 

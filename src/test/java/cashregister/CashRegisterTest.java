@@ -2,7 +2,6 @@ package cashregister;
 
 
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 
 
 import static org.junit.jupiter.api.Assertions.assertSame;
@@ -20,7 +19,7 @@ public class CashRegisterTest {
         Item itemB=new Item("雪碧",2.5);
         Item items[]={itemA,itemB};
         Purchase purchase=new Purchase(items);
-        fakePrinter printer=new fakePrinter();
+        FakePrinter printer=new FakePrinter();
         CashRegister cashRegister=new CashRegister(printer);
 
         //when
@@ -32,11 +31,15 @@ public class CashRegisterTest {
     @Test
     public void should_print_the_stub_purchase_when_call_process() {
         //given
+        FakePrinter fakePrinter=new FakePrinter();
+        FakePurchase fakePurchase=new FakePurchase(null);
 
+        fakePurchase.setStringIWanted("Test");
+        CashRegister cashRegister=new CashRegister(fakePrinter);
         //when
-
+        cashRegister.process(fakePurchase);
         //then
-
+        assertSame("Test",fakePurchase.asString());
     }
 
     @Test

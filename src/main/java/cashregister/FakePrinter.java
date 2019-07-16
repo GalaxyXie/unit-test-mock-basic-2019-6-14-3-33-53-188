@@ -1,6 +1,6 @@
 package cashregister;
 
-public class fakePrinter extends Printer{
+public class FakePrinter extends Printer{
     private boolean isCalled;
     private String text;
 
